@@ -5,6 +5,6 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
-        //Миха написал коммент
+        //Миха написал коммент 2 
     }
 }
