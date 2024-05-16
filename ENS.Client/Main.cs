@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ENS.Client.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace ENS.Client
 {
     public partial class Main : Form
     {
+
+        private readonly IAccountService accountService = new AccountService();
         public Main()
         {
             InitializeComponent();
@@ -19,17 +22,16 @@ namespace ENS.Client
 
         private void Regbtn_Click(object sender, EventArgs e)
         {
-            Registration registrtion = new Registration();
+            Registration registrtion = new Registration(accountService);
             registrtion.ShowDialog();
         }
 
         private void Autbnt_Click(object sender, EventArgs e)
         {
-            Autorisation autorisation = new Autorisation();
+            Autorisation autorisation = new Autorisation(accountService);
 
             autorisation.Show();
 
-            this.Close();
         }
     }
 }

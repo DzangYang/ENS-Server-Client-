@@ -31,11 +31,12 @@ namespace ENS.Client
         private void InitializeComponent()
         {
             label1 = new Label();
-            name = new TextBox();
-            password = new TextBox();
+            nametxt = new TextBox();
+            passwordtxt = new TextBox();
             Entbtn = new Button();
             label2 = new Label();
             label3 = new Label();
+            Mainbtn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -47,19 +48,19 @@ namespace ENS.Client
             label1.TabIndex = 0;
             label1.Text = "Autorisation";
             // 
-            // name
+            // nametxt
             // 
-            name.Location = new Point(248, 122);
-            name.Name = "name";
-            name.Size = new Size(125, 27);
-            name.TabIndex = 1;
+            nametxt.Location = new Point(248, 122);
+            nametxt.Name = "nametxt";
+            nametxt.Size = new Size(125, 27);
+            nametxt.TabIndex = 1;
             // 
-            // password
+            // passwordtxt
             // 
-            password.Location = new Point(248, 212);
-            password.Name = "password";
-            password.Size = new Size(125, 27);
-            password.TabIndex = 2;
+            passwordtxt.Location = new Point(248, 212);
+            passwordtxt.Name = "passwordtxt";
+            passwordtxt.Size = new Size(125, 27);
+            passwordtxt.TabIndex = 2;
             // 
             // Entbtn
             // 
@@ -89,16 +90,27 @@ namespace ENS.Client
             label3.TabIndex = 5;
             label3.Text = "Password";
             // 
+            // Mainbtn
+            // 
+            Mainbtn.Location = new Point(217, 388);
+            Mainbtn.Name = "Mainbtn";
+            Mainbtn.Size = new Size(186, 66);
+            Mainbtn.TabIndex = 6;
+            Mainbtn.Text = "MAIN";
+            Mainbtn.UseVisualStyleBackColor = true;
+            Mainbtn.Click += Mainbtn_Click;
+            // 
             // Autorisation
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(605, 488);
+            Controls.Add(Mainbtn);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(Entbtn);
-            Controls.Add(password);
-            Controls.Add(name);
+            Controls.Add(passwordtxt);
+            Controls.Add(nametxt);
             Controls.Add(label1);
             Name = "Autorisation";
             Text = "Autorisation";
@@ -109,10 +121,11 @@ namespace ENS.Client
         #endregion
 
         private Label label1;
-        private TextBox name;
-        private TextBox password;
+        private TextBox nametxt;
+        private TextBox passwordtxt;
         private Button Entbtn;
         private Label label2;
         private Label label3;
+        private Button Mainbtn;
     }
 }

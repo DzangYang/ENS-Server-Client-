@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ENS.Client
+namespace ENS.Client.Model
 {
     public class Save
     {
@@ -17,7 +17,7 @@ namespace ENS.Client
             this.Rolle = Rolle;
             this.Name = Name;
             this.Password = Password;
-           
+
         }
 
         public string Name { get; set; }

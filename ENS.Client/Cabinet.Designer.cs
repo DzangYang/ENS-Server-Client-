@@ -32,7 +32,7 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            textBox1 = new TextBox();
+            TicketBox = new TextBox();
             Evbtn = new Button();
             SuspendLayout();
             // 
@@ -59,9 +59,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(59, 172);
             label3.Name = "label3";
-            label3.Size = new Size(43, 20);
+            label3.Size = new Size(39, 20);
             label3.TabIndex = 2;
-            label3.Text = "Rolle";
+            label3.Text = "Role";
             // 
             // label4
             // 
@@ -72,12 +72,12 @@
             label4.TabIndex = 3;
             label4.Text = "Your Ticket";
             // 
-            // textBox1
+            // TicketBox
             // 
-            textBox1.Location = new Point(180, 239);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 4;
+            TicketBox.Location = new Point(180, 239);
+            TicketBox.Name = "TicketBox";
+            TicketBox.Size = new Size(125, 27);
+            TicketBox.TabIndex = 4;
             // 
             // Evbtn
             // 
@@ -87,6 +87,7 @@
             Evbtn.TabIndex = 5;
             Evbtn.Text = "Create Event";
             Evbtn.UseVisualStyleBackColor = true;
+            Evbtn.Click += Evbtn_Click;
             // 
             // Cabinet
             // 
@@ -94,7 +95,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(499, 474);
             Controls.Add(Evbtn);
-            Controls.Add(textBox1);
+            Controls.Add(TicketBox);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -111,7 +112,7 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox TicketBox;
         private Button Evbtn;
     }
 }

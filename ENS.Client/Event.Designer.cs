@@ -34,13 +34,13 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            Token = new TextBox();
+            TokenBox = new TextBox();
             groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
             TimeBox = new TextBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            groupBox2 = new GroupBox();
             textBox3 = new TextBox();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             Entbtn = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -100,18 +100,18 @@
             label6.TabIndex = 5;
             label6.Text = "Mail";
             // 
-            // Token
+            // TokenBox
             // 
-            Token.Location = new Point(97, 44);
-            Token.Name = "Token";
-            Token.Size = new Size(250, 27);
-            Token.TabIndex = 6;
+            TokenBox.Location = new Point(97, 44);
+            TokenBox.Name = "TokenBox";
+            TokenBox.Size = new Size(250, 27);
+            TokenBox.TabIndex = 6;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(TimeBox);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(Token);
+            groupBox1.Controls.Add(TokenBox);
             groupBox1.Controls.Add(label3);
             groupBox1.Location = new Point(12, 62);
             groupBox1.Name = "groupBox1";
@@ -119,6 +119,14 @@
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
             groupBox1.Text = "Event Information";
+            // 
+            // TimeBox
+            // 
+            TimeBox.Location = new Point(97, 106);
+            TimeBox.Name = "TimeBox";
+            TimeBox.Size = new Size(250, 27);
+            TimeBox.TabIndex = 8;
+            TimeBox.Text = "dd.mm.yy hh:mm";
             // 
             // groupBox2
             // 
@@ -135,20 +143,13 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Mail";
             // 
-            // TimeBox
+            // textBox3
             // 
-            TimeBox.Location = new Point(97, 106);
-            TimeBox.Name = "TimeBox";
-            TimeBox.Size = new Size(250, 27);
-            TimeBox.TabIndex = 8;
-            TimeBox.Text = "dd.mm.yy hh:mm";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(148, 44);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(192, 27);
-            textBox1.TabIndex = 6;
+            textBox3.Location = new Point(148, 161);
+            textBox3.Multiline = true;
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(192, 188);
+            textBox3.TabIndex = 8;
             // 
             // textBox2
             // 
@@ -157,13 +158,12 @@
             textBox2.Size = new Size(192, 27);
             textBox2.TabIndex = 7;
             // 
-            // textBox3
+            // textBox1
             // 
-            textBox3.Location = new Point(148, 161);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(192, 188);
-            textBox3.TabIndex = 8;
+            textBox1.Location = new Point(148, 44);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(192, 27);
+            textBox1.TabIndex = 6;
             // 
             // Entbtn
             // 
@@ -173,6 +173,7 @@
             Entbtn.TabIndex = 9;
             Entbtn.Text = "Enter";
             Entbtn.UseVisualStyleBackColor = true;
+            Entbtn.Click += Entbtn_Click;
             // 
             // Event
             // 
@@ -202,7 +203,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private TextBox Token;
+        private TextBox TokenBox;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private TextBox TimeBox;

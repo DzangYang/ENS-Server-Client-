@@ -36,6 +36,7 @@
             nametxt = new TextBox();
             passwordtxt = new TextBox();
             rolletxt = new TextBox();
+            Mainbtn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -49,7 +50,7 @@
             // 
             // Entbtn
             // 
-            Entbtn.Location = new Point(349, 341);
+            Entbtn.Location = new Point(325, 341);
             Entbtn.Name = "Entbtn";
             Entbtn.Size = new Size(125, 48);
             Entbtn.TabIndex = 1;
@@ -105,11 +106,22 @@
             rolletxt.Size = new Size(125, 27);
             rolletxt.TabIndex = 7;
             // 
+            // Mainbtn
+            // 
+            Mainbtn.Location = new Point(46, 341);
+            Mainbtn.Name = "Mainbtn";
+            Mainbtn.Size = new Size(125, 48);
+            Mainbtn.TabIndex = 8;
+            Mainbtn.Text = "MAIN";
+            Mainbtn.UseVisualStyleBackColor = true;
+            Mainbtn.Click += Mainbtn_Click;
+            // 
             // Registration
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(486, 401);
+            Controls.Add(Mainbtn);
             Controls.Add(rolletxt);
             Controls.Add(passwordtxt);
             Controls.Add(nametxt);
@@ -134,5 +146,6 @@
         private TextBox nametxt;
         private TextBox passwordtxt;
         private TextBox rolletxt;
+        private Button Mainbtn;
     }
 }

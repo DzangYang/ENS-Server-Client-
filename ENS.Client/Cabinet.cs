@@ -1,20 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ENS.Client.Model;
 
 namespace ENS.Client
 {
     public partial class Cabinet : Form
     {
-        public Cabinet()
+        private readonly IAccount account;
+
+        public Cabinet(IAccount account)
         {
             InitializeComponent();
+            this.account = account;
+            LoadAccountData();
+        }
+
+        private void LoadAccountData()
+        {
+            label2.Text = $"Name: {account.Name}";
+            label3.Text = $"Role: {account.Role}";
+            TicketBox.Text = account.EventTicket;
+        }
+
+        private void Evbtn_Click(object sender, EventArgs e)
+        {
+            var eventForm = new Event(account.EventTicket);
+            eventForm.ShowDialog();
+
         }
     }
 }
