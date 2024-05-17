@@ -1,8 +1,9 @@
-﻿using ENS.Application.Authentification.Dto;
-using ENS.Domain.Entities;
+﻿
+using ENS_Server_Client_.Authentification.Dto;
+using ENS_Server_Client_.Domain.Entities;
 using System.Text.Json;
 
-namespace ENS.Application.Authentification;
+namespace ENS_Server_Client_.Authentification;
 
 public class AuthService(ApplicationContext applicationContext, CurrentUserService currentUserService) : IAuthService
 {
@@ -33,9 +34,9 @@ public class AuthService(ApplicationContext applicationContext, CurrentUserServi
     public void SignIn(RegistrationRequestDTO registrationRequest)
     {
         var currentUser = applicationContext.Users.FirstOrDefault(x => x.UserName == registrationRequest.Name);
-        
+
         if (currentUser != null) throw new Exception("Ошибка, пользователь с таким логином уже существует");
-       
+
         var user = new User
         {
             UserName = registrationRequest.Name,
@@ -76,8 +77,8 @@ public class AuthService(ApplicationContext applicationContext, CurrentUserServi
 
         if (string.IsNullOrEmpty(token)) throw exception;
 
-        if (token.Split('.') is not [var payload,var secret]) throw exception;
-        
+        if (token.Split('.') is not [var payload, var secret]) throw exception;
+
         if (secret != "my-secret-token") throw exception;
 
         var tokenPayload = JsonSerializer.Deserialize<TokenPayload>(payload);

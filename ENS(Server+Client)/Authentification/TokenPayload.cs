@@ -1,4 +1,4 @@
-﻿namespace ENS.Application.Authentification;
+﻿namespace ENS_Server_Client_.Authentification;
 
 /// <summary>
 /// Класс содержащий key, value 
