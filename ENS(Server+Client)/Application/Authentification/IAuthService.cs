@@ -1,6 +1,6 @@
-﻿using ENS_Server_Client_.Authentification.Dto;
+﻿using ENS_Server_Client_.Application.Authentification.Dto;
 
-namespace ENS_Server_Client_.Authentification;
+namespace ENS_Server_Client_.Application.Authentification;
 
 /// <summary>
 /// Сервис аутенфикации

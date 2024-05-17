@@ -1,4 +1,4 @@
-﻿namespace ENS_Server_Client_.Authentification;
+﻿namespace ENS_Server_Client_.Application.Authentification;
 
 /// <summary>
 /// Текущий авторизованнный пользователь

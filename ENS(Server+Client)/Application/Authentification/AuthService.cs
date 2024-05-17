@@ -1,9 +1,8 @@
-﻿
-using ENS_Server_Client_.Authentification.Dto;
+﻿using ENS_Server_Client_.Application.Authentification.Dto;
 using ENS_Server_Client_.Domain.Entities;
 using System.Text.Json;
 
-namespace ENS_Server_Client_.Authentification;
+namespace ENS_Server_Client_.Application.Authentification;
 
 public class AuthService(ApplicationContext applicationContext, CurrentUserService currentUserService) : IAuthService
 {
