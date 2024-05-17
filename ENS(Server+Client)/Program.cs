@@ -1,5 +1,12 @@
 using ENS_Server_Client_;
+using ENS_Server_Client_.Application.Authentification;
+using ENS_Server_Client_.Application.Events;
+using ENS_Server_Client_.Application.Senders.Common;
+using ENS_Server_Client_.Application.Senders.Email;
+using ENS_Server_Client_.Application.Senders.Whatsapp;
+using ENS_Server_Client_.Application.Senders;
 using Microsoft.EntityFrameworkCore;
+using ENS_Server_Client_.MiddleWare;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,8 +21,25 @@ var connectionString = builder.Configuration.GetConnectionString("ApplicationDbC
     ?? throw new InvalidOperationException("Connection string 'ApplicationDbContextConnection' not found.");
 
 
+
+builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddScoped<CurrentUserService>();
+
+
+builder.Services.Configure<EmailOptions>(builder.Configuration.GetSection("EmailOptions"));
+
+
+builder.Services.AddScoped<IEventSender, WhatsappSender>();
+builder.Services.AddScoped<IEventSender, EmailSender>();
+
+builder.Services.AddScoped<ISenderFactory, SenderFactory>();
+
+
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(connectionString));
 
+builder.Services.AddHostedService<EventSendingBackGroundService>();
 
 var app = builder.Build();
 
@@ -27,6 +51,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<TokenMiddleWare>();
 
 app.UseAuthorization();
 

@@ -1,10 +1,10 @@
-﻿using ENS_Server_Client_.Domain.Entities;
-using ENS_Server_Client_.Senders.Common;
+﻿using ENS_Server_Client_.Application.Senders.Common;
+using ENS_Server_Client_.Domain.Entities;
 using Microsoft.Extensions.Options;
 using System.Net;
 using System.Net.Mail;
 
-namespace ENS_Server_Client_.Senders.Email;
+namespace ENS_Server_Client_.Application.Senders.Email;
 
 public class EmailSender : IEventSender
 {
@@ -85,11 +85,11 @@ public class EmailSender : IEventSender
         var from = new MailAddress(_options.From, _options.Name);
 
         var mailsMessages = contacts
-            .Select((Func<string, MailAddress>)(adress =>
+            .Select(adress =>
             {
-                var adres = new MailAddress((string)adress);
+                var adres = new MailAddress(adress);
                 return adres;
-            }))
+            })
             .Select(adress => new MailMessage(from, adress)
             {
                 Subject = subject,

@@ -1,9 +1,9 @@
-﻿using ENS.Domain.Entities;
-using ENS_Server_Client_.Senders.Common;
-using ENS_Server_Client_.Senders.Email;
-using ENS_Server_Client_.Senders.Whatsapp;
+﻿using ENS_Server_Client_.Domain.Entities;
+using ENS_Server_Client_.Application.Senders.Common;
+using ENS_Server_Client_.Application.Senders.Email;
+using ENS_Server_Client_.Application.Senders.Whatsapp;
 
-namespace ENS_Server_Client_.Senders;
+namespace ENS_Server_Client_.Application.Senders;
 
 /// <summary>
 /// Класс отвечающий за создание обьекта типа передаваемого ивента

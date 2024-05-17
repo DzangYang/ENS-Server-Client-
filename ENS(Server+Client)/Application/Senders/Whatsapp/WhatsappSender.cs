@@ -1,8 +1,9 @@
-﻿using ENS.Domain.Entities;
-using ENS_Server_Client_.Senders.Common;
+﻿
+using ENS_Server_Client_.Application.Senders.Common;
+using ENS_Server_Client_.Domain.Entities;
 using RestSharp;
 
-namespace ENS_Server_Client_.Senders.Whatsapp;
+namespace ENS_Server_Client_.Application.Senders.Whatsapp;
 
 public class WhatsappSender : IEventSender
 {

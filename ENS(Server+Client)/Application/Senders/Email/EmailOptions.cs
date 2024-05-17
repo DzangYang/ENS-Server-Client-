@@ -1,4 +1,4 @@
-﻿namespace ENS_Server_Client_.Senders.Email;
+﻿namespace ENS_Server_Client_.Application.Senders.Email;
 
 /// <summary>
 /// Настройки для отправки ивента на почту

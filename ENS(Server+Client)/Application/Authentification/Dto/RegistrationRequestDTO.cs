@@ -1,4 +1,4 @@
-﻿namespace ENS_Server_Client_.Authentification.Dto;
+﻿namespace ENS_Server_Client_.Application.Authentification.Dto;
 
 /// <summary>
 /// Данные для регистрации пользователя
