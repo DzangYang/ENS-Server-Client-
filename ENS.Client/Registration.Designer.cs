@@ -56,7 +56,7 @@
             Entbtn.TabIndex = 1;
             Entbtn.Text = "ENTER";
             Entbtn.UseVisualStyleBackColor = true;
-            Entbtn.Click += Entbtn_Click;
+            Entbtn.Click += Entbtn_ClickAsync;
             // 
             // label2
             // 

@@ -1,53 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ENS.Client.Model;
+using System;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using ENS.Client.Model;
 
 namespace ENS.Client
 {
     public partial class Registration : Form
     {
-
         private readonly IAccountService accountService;
+        
+        private HttpClient client = new HttpClient();
 
         public Registration(IAccountService accountService)
         {
             InitializeComponent();
             this.accountService = accountService;
+            client.BaseAddress = new Uri("https://localhost:7278/");
         }
 
-
-
-
-        private void Entbtn_Click(object sender, EventArgs e)
+        private async void Entbtn_ClickAsync(object sender, EventArgs e)
         {
-            var name = nametxt.Text;
-            var password = passwordtxt.Text;
-            var role = rolletxt.Text;
-
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(role))
+            var test = new Test2
             {
-                MessageBox.Show("Please fill in all fields.");
-                return;
-            }
+                name = nametxt.Text,
+                password = passwordtxt.Text,
+                role = rolletxt.Text
+            };
 
-            var account = new Account(name, password, role);
             try
             {
-                accountService.RegisterAccount(account);
-                MessageBox.Show("Registration successful.");
-                this.Close(); // Закрыть форму после успешной регистрации
+                HttpResponseMessage message = await client.PostAsJsonAsync("api/AuthControler/SignIn", test);
+                if (message.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Successfully signed in!");
+                }
+                else
+                {
+                    MessageBox.Show($"Sign-in failed: {message.ReasonPhrase}");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
 
@@ -55,5 +50,12 @@ namespace ENS.Client
         {
             this.Close();
         }
+    }
+
+    public class Test2
+    {
+        public string name { get; set; }
+        public string password { get; set; }
+        public string role { get; set; }
     }
 }

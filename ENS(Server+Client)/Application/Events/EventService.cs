@@ -43,7 +43,10 @@ public class EventService(ApplicationContext applicationContext,
             Contacts = eventRequest.Contacts,
             PostedDate = eventRequest.PostedDate,
             Subject = eventRequest.Subject,
-            UserId = currentUserService.Id
+            UserId = currentUserService.Id,
+            CreatedDate = DateTime.Now,
+            
+            
         };
 
         applicationContext.Events.Add(@event);

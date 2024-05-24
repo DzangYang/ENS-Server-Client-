@@ -13,8 +13,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ENS_Server_Client_.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240517171431_init2")]
-    partial class init2
+    [Migration("20240524192043_init1")]
+    partial class init1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,13 +37,13 @@ namespace ENS_Server_Client_.Migrations
                         .HasColumnType("text[]");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<bool>("IsPosted")
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("PostedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Subject")
                         .IsRequired()

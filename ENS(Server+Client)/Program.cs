@@ -41,6 +41,8 @@ builder.Services.AddDbContext<ApplicationContext>(options => options.UseNpgsql(c
 
 builder.Services.AddHostedService<EventSendingBackGroundService>();
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
