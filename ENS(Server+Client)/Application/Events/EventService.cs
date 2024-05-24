@@ -1,5 +1,4 @@
-﻿
-using ENS_Server_Client_.Application.Authentification;
+﻿using ENS_Server_Client_.Application.Authentification;
 using ENS_Server_Client_.Application.Events;
 using ENS_Server_Client_.Application.Events.Dto;
 using ENS_Server_Client_.Application.Senders;
@@ -43,7 +42,10 @@ public class EventService(ApplicationContext applicationContext,
             Contacts = eventRequest.Contacts,
             PostedDate = eventRequest.PostedDate,
             Subject = eventRequest.Subject,
-            UserId = currentUserService.Id
+            UserId = currentUserService.Id,
+            CreatedDate = DateTime.Now,
+
+
         };
 
         applicationContext.Events.Add(@event);
@@ -90,4 +92,3 @@ public class EventService(ApplicationContext applicationContext,
     }
 
 }
-

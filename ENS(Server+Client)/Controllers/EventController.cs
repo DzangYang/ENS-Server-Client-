@@ -1,5 +1,4 @@
-﻿
-using ENS_Server_Client_.Application.Authentification;
+﻿using ENS_Server_Client_.Application.Authentification;
 using ENS_Server_Client_.Application.Events;
 using ENS_Server_Client_.Application.Events.Dto;
 using Microsoft.AspNetCore.Mvc;
@@ -13,26 +12,26 @@ public class EventController(IEventService eventService, IAuthService _authServi
     , CurrentUserService currentUser) : ControllerBase
 {
     [HttpPost("Create")]
-    public void Create([FromHeader(Name = "token")] string headerToken, CreateEventRequestDTO eventRequest)
+    public void Create(string headerToken, CreateEventRequestDTO eventRequest)
     {
-        Validate();
+
+
+        Validate(headerToken);
         eventService.Create(eventRequest);
-      
+
     }
 
     [HttpPost("GetAll")]
-    public List<GetAllEventDTO> GetAll([FromHeader(Name = "token")] string headerToken, EventFilterDTO filter)
+    public List<GetAllEventDTO> GetAll(string headerToken, EventFilterDTO filter)
     {
-        Validate();
+        Validate(headerToken);
         return eventService.GetAll(filter);
     }
 
-    private void Validate()
+    private void Validate(string headerToken)
     {
-        var tokenExist = HttpContext.Request.Headers.TryGetValue("token", out var token);
-        if (!tokenExist) throw new Exception("Токен не найден");
 
-        _authService.ValideToken(token);
+        _authService.ValideToken(headerToken);
     }
 
 }
