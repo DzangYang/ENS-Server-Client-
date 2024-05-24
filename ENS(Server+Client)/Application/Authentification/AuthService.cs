@@ -1,6 +1,5 @@
 ﻿using ENS_Server_Client_.Application.Authentification.Dto;
 using ENS_Server_Client_.Domain.Entities;
-using System.Text;
 using System.Text.Json;
 
 namespace ENS_Server_Client_.Application.Authentification;
@@ -62,9 +61,7 @@ public class AuthService(ApplicationContext applicationContext, CurrentUserServi
 
         var secret = "my-secret-token";
         var jsonPayload = JsonSerializer.Serialize(payload);
-        var tok = Encoding.UTF8.GetBytes(jsonPayload);
-
-         var jwtToken = $"{string.Join("*", tok)}.{secret}";
+        var jwtToken = $"{jsonPayload}.{secret}";
 
         return jwtToken;
     }
@@ -82,8 +79,8 @@ public class AuthService(ApplicationContext applicationContext, CurrentUserServi
         if (token.Split('.') is not [var payload, var secret]) throw exception;
 
         if (secret != "my-secret-token") throw exception;
-        var payloadResult = Encoding.UTF8.GetString(payload.Split("*").Select(x => byte.Parse(x)).ToArray());
-        var tokenPayload = JsonSerializer.Deserialize<TokenPayload>(payloadResult);
+
+        var tokenPayload = JsonSerializer.Deserialize<TokenPayload>(payload);
 
         var user = applicationContext.Users
             .FirstOrDefault(x => x.UserName == tokenPayload.Name && x.Id == tokenPayload.Id) ?? throw exception;

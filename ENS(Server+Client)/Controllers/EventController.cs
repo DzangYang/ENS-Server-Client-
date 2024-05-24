@@ -13,26 +13,26 @@ public class EventController(IEventService eventService, IAuthService _authServi
     , CurrentUserService currentUser) : ControllerBase
 {
     [HttpPost("Create")]
-    public void Create(string headerToken, CreateEventRequestDTO eventRequest)
+    public void Create([FromHeader(Name = "token")] string headerToken, CreateEventRequestDTO eventRequest)
     {
-        
-        
-        Validate(headerToken);
+        Validate();
         eventService.Create(eventRequest);
       
     }
 
     [HttpPost("GetAll")]
-    public List<GetAllEventDTO> GetAll( string headerToken, EventFilterDTO filter)
+    public List<GetAllEventDTO> GetAll([FromHeader(Name = "token")] string headerToken, EventFilterDTO filter)
     {
-        Validate(headerToken);
+        Validate();
         return eventService.GetAll(filter);
     }
 
-    private void Validate(string headerToken)
+    private void Validate()
     {
-      
-        _authService.ValideToken(headerToken);
+        var tokenExist = HttpContext.Request.Headers.TryGetValue("token", out var token);
+        if (!tokenExist) throw new Exception("Токен не найден");
+
+        _authService.ValideToken(token);
     }
 
 }

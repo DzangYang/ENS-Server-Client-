@@ -31,9 +31,9 @@ namespace ENS_Server_Client_.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     UserId = table.Column<Guid>(type: "uuid", nullable: false),
-                    PostedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    PostedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Contacts = table.Column<List<string>>(type: "text[]", nullable: false),
                     Text = table.Column<string>(type: "text", nullable: false),
                     IsPosted = table.Column<bool>(type: "boolean", nullable: false),
