@@ -34,13 +34,13 @@ namespace ENS_Server_Client_.Migrations
                         .HasColumnType("text[]");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<bool>("IsPosted")
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("PostedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Subject")
                         .IsRequired()
