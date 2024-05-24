@@ -38,9 +38,11 @@
             groupBox1 = new GroupBox();
             TimeBox = new TextBox();
             groupBox2 = new GroupBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            typeBox = new TextBox();
+            label7 = new Label();
+            mailBox = new TextBox();
+            themeBox = new TextBox();
+            contactsBox = new TextBox();
             Entbtn = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -130,9 +132,11 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(textBox3);
-            groupBox2.Controls.Add(textBox2);
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(typeBox);
+            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(mailBox);
+            groupBox2.Controls.Add(themeBox);
+            groupBox2.Controls.Add(contactsBox);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(label6);
@@ -143,27 +147,43 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Mail";
             // 
-            // textBox3
+            // typeBox
             // 
-            textBox3.Location = new Point(148, 161);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(192, 188);
-            textBox3.TabIndex = 8;
+            typeBox.Location = new Point(148, 324);
+            typeBox.Name = "typeBox";
+            typeBox.Size = new Size(192, 27);
+            typeBox.TabIndex = 10;
             // 
-            // textBox2
+            // label7
             // 
-            textBox2.Location = new Point(148, 106);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(192, 27);
-            textBox2.TabIndex = 7;
+            label7.AutoSize = true;
+            label7.Location = new Point(17, 327);
+            label7.Name = "label7";
+            label7.Size = new Size(40, 20);
+            label7.TabIndex = 9;
+            label7.Text = "Type";
             // 
-            // textBox1
+            // mailBox
             // 
-            textBox1.Location = new Point(148, 44);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(192, 27);
-            textBox1.TabIndex = 6;
+            mailBox.Location = new Point(148, 161);
+            mailBox.Multiline = true;
+            mailBox.Name = "mailBox";
+            mailBox.Size = new Size(192, 144);
+            mailBox.TabIndex = 8;
+            // 
+            // themeBox
+            // 
+            themeBox.Location = new Point(148, 106);
+            themeBox.Name = "themeBox";
+            themeBox.Size = new Size(192, 27);
+            themeBox.TabIndex = 7;
+            // 
+            // contactsBox
+            // 
+            contactsBox.Location = new Point(148, 44);
+            contactsBox.Name = "contactsBox";
+            contactsBox.Size = new Size(192, 27);
+            contactsBox.TabIndex = 6;
             // 
             // Entbtn
             // 
@@ -207,9 +227,11 @@
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private TextBox TimeBox;
-        private TextBox textBox1;
-        private TextBox textBox3;
-        private TextBox textBox2;
+        private TextBox contactsBox;
+        private TextBox mailBox;
+        private TextBox themeBox;
         private Button Entbtn;
+        private TextBox typeBox;
+        private Label label7;
     }
 }
